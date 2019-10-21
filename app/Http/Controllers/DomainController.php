@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Session;
 
 class DomainController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
-
     public function show()
     {
         return view('domain');
