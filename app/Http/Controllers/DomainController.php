@@ -92,6 +92,6 @@ class DomainController extends Controller
 
         Mail::to($data['email'])->send(new DomainMail($domains));
 
-        return view('domainEmail')->with('responses', $domains)->with('successMsg','Email was sent.');; 
+        return view('domain')->with('responses', $domains)->with('successMsg','Email was sent.');; 
     }
 }
