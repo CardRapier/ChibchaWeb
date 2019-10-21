@@ -1,17 +1,22 @@
 {
-    "name": "laravel/laravel",
+    "name": "laravel/chibchaweb",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "The chibchaweb webpage.",
     "keywords": [
         "framework",
-        "laravel"
+        "laravel",
+        "chibchaweb"
     ],
     "license": "MIT",
     "require": {
         "php": "^7.2",
         "fideloper/proxy": "^4.0",
+        "google/recaptcha": "^1.2",
+        "laravel-validation-rules/credit-card": "^1.2",
         "laravel/framework": "^6.0",
-        "laravel/tinker": "^1.0"
+        "laravel/telescope": "^2.1",
+        "laravel/tinker": "^1.0",
+        "laravel/ui": "^1.1"
     },
     "require-dev": {
         "facade/ignition": "^1.4",
