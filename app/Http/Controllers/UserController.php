@@ -19,17 +19,7 @@ class UserController extends Controller
     public function index()
     {
         $user = auth()->user();
-        $card_number = $user->payment === null ? '' : $user->payment->card_number;
-        $card_type = '';
-
-        if ($card_number <> null and $card_number[0] === '4') {
-            $card_type = "Visa";
-        } else {
-            $card_type = "Master Card";
-        }
-        
-        $card_number = substr($card_number, -4);
-        return view('users.profile', compact('user', 'card_number', 'card_type'));
+        return view('users.profile', compact('user'));
     }
 
     public function update()
@@ -39,11 +29,10 @@ class UserController extends Controller
         $data = request()->validate([
             'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/'],
             'last_name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/'],
-            'email' => ['required', 'string', 'email', 'max:255', Rule::unique('users')->ignore($user->id)],
             'cellphone_number' => ['string', 'nullable', Rule::unique('users')->ignore($user->id)],
         ]);
 
-        if ($data['name'] <> $user->name or $data['last_name'] <> $user->last_name or $data['email'] <> $user->email or $data['cellphone_number'] <> $user->cellphone_number) {
+        if ($data['name'] <> $user->name or $data['last_name'] <> $user->last_name or $data['cellphone_number'] <> $user->cellphone_number) {
             auth()->user()->update($data);
             return redirect('/profile')->with('message', 'Data has been updated successfully');
         } else {

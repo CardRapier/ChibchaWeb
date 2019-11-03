@@ -34,3 +34,5 @@ Route::get('/domain', 'DomainController@show')->name('domain.show');
 Route::post('/domain', 'DomainController@available')->name('domain.available');
 Route::get('/domain/email', 'DomainController@email')->name('domain.email');
 Route::post('/domain/email', 'DomainController@sendEmail')->name('domain.sendEmail');
+
+Route::get('/user/domain', 'DomainUserController@index')->name('domain.index');

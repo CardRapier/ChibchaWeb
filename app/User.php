@@ -38,11 +38,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'last_login' => 'datetime',
     ];
 
-    public function payment()
-    {
-        return $this->hasOne(Payment::class);
-    }
-
     public function userType()
     {
         return $this->belongsTo(UserType::class);
