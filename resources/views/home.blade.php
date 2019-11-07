@@ -9,6 +9,7 @@
                 {{ session('status') }}
             </div>
             @endif
+            <!-- This is a test from Fabian :) -->
             <div class="card">
                 <div class="card-header">Dashboard</div>
                 <div class="card-body">
