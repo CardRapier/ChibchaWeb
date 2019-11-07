@@ -49517,8 +49517,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\cardr\ChibchaWeb\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\cardr\ChibchaWeb\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\Fabian\Desktop\U el bosque\WorkSpaces\Laravel\CW\ChibchaWeb\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\Users\Fabian\Desktop\U el bosque\WorkSpaces\Laravel\CW\ChibchaWeb\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
