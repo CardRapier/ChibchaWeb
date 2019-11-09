@@ -11,7 +11,7 @@
         </div>
     </div>
     </div>
-
+        <!-- hola -->
     <div class="mt-5 border border-dark bg-gradient-secondary">
     <h2 class="ml-5 mt-3">Paquetes</h2>
     <div class="row pb-5">
