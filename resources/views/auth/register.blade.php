@@ -66,7 +66,7 @@
                                 @enderror
                             </div>
                             <div class="col-md-2">
-                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="La contraseña debe contener mínimo 8 caracteres, una mayúscula, una minúscula, un número y un símbolo [@$!%*#?&_-].">
+                            <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="The password must contain at least 8 characters, one uppercase, one lowercase, one number and one symbol [@$!%*##?&_-].">
                             <button class="btn btn-success rounded-circle" style="pointer-events: none;" type="button" disabled>?</button>
                             </span>
                             </div>

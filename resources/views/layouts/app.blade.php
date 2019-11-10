@@ -38,7 +38,24 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('/') }}">Products</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Distributors</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('domain') }}">Domains</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="">Contact Us</a>
+                        </li>
+                    @guest
+                    @else
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url('hosting') }}">My hostings</a>
+                        </li>
+                    @endguest
                     </ul>
 
                     <!-- Right Side Of Navbar -->

@@ -11,17 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'PackageController@show')->name('package.show');
 
 Auth::routes(['verify' => true]);
 
-Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
+Route::get('/hosting', 'HostingController@showAll')->name('hosting.showAll')->middleware('verified');
 
-Route::get('/profile', 'UserController@index')->name('profile.show');
-Route::patch('/profile/update', 'UserController@update')->name('profile.update');
-Route::patch('/password/change', 'UserController@update_password')->name('password.change');
+Route::get('/profile', 'UserController@index')->name('profile.show')->middleware('verified');
+Route::patch('/profile/update', 'UserController@update')->name('profile.update')->middleware('verified');
+Route::patch('/password/change', 'UserController@update_password')->name('password.change')->middleware('verified');
 
 Route::get('/user/payment', 'PaymentController@show_payment')->name('payment.show');
 Route::patch('/payment/change', 'PaymentController@change_payment')->name('payment.change');
