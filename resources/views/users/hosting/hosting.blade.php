@@ -7,16 +7,16 @@
             <div class="card">
                 <div class="card-header">
                     <span class="float-left">My hostings</span>
-                    <button class="btn btn-success ml-5 float-right">New hosting</button>
+                    <a class="btn btn-success ml-5 float-right" href="{{ url('/hosting/create') }}">New hosting</a>
                 </div>
                 <div class="card-body">
                 @if(isset($hostings))
                 @foreach ($hostings as $host)
-                    <h1>Aqui van los hostings que posee y un link para poder adquirir uno nuevo</h1>
+                    <h1>{{$host->name}} <a href="{{ url('/hosting/view/'.$host->user->id.'/'.$host->id) }}">Enter</a></h1>
                 @endforeach
                 @else
-                @endif
                     <h1>You don´t have any host</h1>
+                @endif
                 </div>
             </div>
         </div>
