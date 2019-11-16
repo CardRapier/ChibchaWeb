@@ -21,13 +21,20 @@ class HostingController extends Controller
     }
 
     public function view($user_id,$hosting_id){
+        $sizes = array();
+
         $client = new Client(['base_uri' => 'http://chibchaweblfs.centralus.cloudapp.azure.com/api/']);
 
         $r = $client->request('GET', 'view.php',[
             'query' => ['user_id' => $user_id,'name'=>$hosting_id]
         ]);
         $files = json_decode($r->getHeader('Data')[0],true);
-        $sizes = array("size"=>array_pop($files));
+        if(!isset($files)){
+            $files = array();
+        }
+        if(isset($files)){
+            $sizes = array("size"=>array_pop($files));
+        }
         $hosting = Hosting::find($hosting_id);
         $user = User::find($user_id);
         return view('users.hosting.hostingView')->with(['files'=>$files,'sizes'=>$sizes,'hosting'=>$hosting,'user'=>$user]);
