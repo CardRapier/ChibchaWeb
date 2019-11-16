@@ -85,13 +85,12 @@ class HostingController extends Controller
             'package_id' => $data['package'],
             'name' => $data['name']
         ]);
-
+        $h = Hosting::where('name', $data['name'])->where('user_id',auth()->user()->id)->first();
         $client = new Client(['base_uri' => 'http://chibchaweblfs.centralus.cloudapp.azure.com/api/']);
-
         $response = $client->request('POST', 'mkfolder.php', [
             'form_params' => [
-                'user_id' => $data['name'],
-                'name' => $data['domain']
+                'user_id' => auth()->user()->id,
+                'name' => $h->id
             ]
         ]);
         $body = $response->getHeader('Data');
