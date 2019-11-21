@@ -33,7 +33,7 @@ True {{$message}}
 
         <div class="card ">
             <div class="card-header">
-                <span class="float-left">{{$hosting->name}}</span>
+                <span class="float-left"><a class="btn btn-success mr-3" href="{{url('/hosting')}}">< Back</a>{{$hosting->name}}</span>
                 <form action="{{ route('hosting.upload')}}" method="POST" enctype="multipart/form-data" class="float-right">
                 @csrf
                     <input type="file" id="fileToUpload" name="fileToUpload" style="display: none;" required/>
@@ -73,7 +73,7 @@ True {{$message}}
             </div>
             <div class="card-footer text-muted">
             @foreach ($sizes as $size)
-                {{$size}}
+                Total: {{$size}}
             @endforeach
             </div>
         </div>

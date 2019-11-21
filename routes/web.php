@@ -18,7 +18,7 @@ Auth::routes(['verify' => true]);
 Route::get('/hosting', 'HostingController@showAll')->name('hosting.showAll')->middleware('verified');
 Route::get('/hosting/create','HostingController@create')->name('hosting.create')->middleware('verified');
 Route::post('/hosting/create','HostingController@store')->name('hosting.store')->middleware('verified');
-Route::get('/hosting/view/{user_id}/{hosting_id}','HostingController@view')->name('hosting.view')->middleware('verified');
+Route::get('/hosting/show/{user_id}/{hosting_id}','HostingController@show')->name('hosting.show')->middleware('verified');
 Route::post('/hosting/upload','HostingController@upload')->name('hosting.upload')->middleware('verified');
 Route::post('/hosting/delete','HostingController@delete')->name('hosting.delete')->middleware('verified');
 

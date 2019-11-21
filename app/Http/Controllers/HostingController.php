@@ -16,11 +16,12 @@ class HostingController extends Controller
     }
     public function showAll()
     {
-        $hostings = Hosting::all();
+        $id = auth()->user()->id;
+        $hostings = Hosting::all()->where('user_id',$id);
         return view('users.hosting.hosting')->with('hostings', $hostings);
     }
 
-    public function view($user_id,$hosting_id){
+    public function show($user_id,$hosting_id){
         $sizes = array();
 
         $client = new Client(['base_uri' => 'http://chibchaweblfs.centralus.cloudapp.azure.com/api/']);
@@ -37,7 +38,7 @@ class HostingController extends Controller
         }
         $hosting = Hosting::find($hosting_id);
         $user = User::find($user_id);
-        return view('users.hosting.hostingView')->with(['files'=>$files,'sizes'=>$sizes,'hosting'=>$hosting,'user'=>$user]);
+        return view('users.hosting.hostingShow')->with(['files'=>$files,'sizes'=>$sizes,'hosting'=>$hosting,'user'=>$user]);
     }
 
     public function create(){
@@ -68,7 +69,7 @@ class HostingController extends Controller
             ]
         ]);
 
-        return redirect('/hosting/view/'.$data['user']."/".$data['domain']);
+        return redirect('/hosting/show/'.$data['user']."/".$data['domain']);
     }
 
     public function store(){
@@ -114,6 +115,6 @@ class HostingController extends Controller
                 'filename' => $data['filename']
             ]
         ]);
-        return redirect('/hosting/view/'.$data['name']."/".$data['domain']);
+        return redirect('/hosting/show/'.$data['name']."/".$data['domain']);
     }
 }
