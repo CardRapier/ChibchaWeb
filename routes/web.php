@@ -38,4 +38,8 @@ Route::post('/domain', 'DomainController@available')->name('domain.available');
 Route::get('/domain/email', 'DomainController@email')->name('domain.email');
 Route::post('/domain/email', 'DomainController@sendEmail')->name('domain.sendEmail');
 
-Route::get('/user/domain', 'DomainUserController@index')->name('domain.index');
+Route::get('/user/domain', 'DomainUserController@index')->name('domain.index')->middleware('verified');
+Route::post('/user/domain', 'DomainUserController@addregistry')->name('domain.addregistry')->middleware('verified');
+
+Route::get('/user/distributor', 'DistributorController@index')->name('distributor.index')->middleware('verified');
+Route::post('/user/distributor', 'DistributorController@addDistributor')->name('distributor.addDistributor')->middleware('verified');
