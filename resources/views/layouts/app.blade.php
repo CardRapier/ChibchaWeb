@@ -55,6 +55,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{ url('hosting') }}">My hostings</a>
                         </li>
+                        <li class="nav-item">
+                                <a class="nav-link" href="{{ route('ticket.index') }}">Support</a>
+                        </li>
                     @endguest
                     </ul>
 

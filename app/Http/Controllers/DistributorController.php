@@ -13,8 +13,11 @@ class DistributorController extends Controller
         $this->middleware('auth');
         
     }
-    public function index(){
-        $distributors = Distributor::paginate(5);
+    public function index(Request $request){
+        $nameRequest=$request->get('nameDist');
+        $distributors = Distributor::orderBy('name', 'DESC')
+        ->name($nameRequest)
+        ->paginate(5);
         return view('users.distributor.distributor', compact('distributors'));
     }
     public function addDistributor(Request $request){

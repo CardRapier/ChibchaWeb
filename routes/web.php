@@ -43,3 +43,7 @@ Route::post('/user/domain', 'DomainUserController@addregistry')->name('domain.ad
 
 Route::get('/user/distributor', 'DistributorController@index')->name('distributor.index')->middleware('verified');
 Route::post('/user/distributor', 'DistributorController@addDistributor')->name('distributor.addDistributor')->middleware('verified');
+
+Route::get('/user/userTicket', 'TicketController@index')->name('ticket.index')->middleware('verified');
+Route::post('/user/userTicket', 'TicketController@addTicket')->name('ticket.addTicket')->middleware('verified');
+Route::get('/user/userTicket/{id}', 'TicketController@showTicket')->name('ticket.showTicket')->middleware('verified');
