@@ -21,6 +21,7 @@ class CreateTicketsTable extends Migration
             $table->string('title');
             $table->char('state', 1);
             $table->longtext('description');
+            $table->longtext('answer_description');
             $table->timestamps();
         });
     }

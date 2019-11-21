@@ -12,4 +12,8 @@ class Ticket extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function scopeuser_id($query , $id){
+        if($id)
+            return $query->where('user_id', $id);
+    }
 }

@@ -2,6 +2,14 @@
 @section('content')
 <div class="row">
     <div class="col-md-7"> 
+        <div>
+            <form action="{{route('distributor.index')}}" method="GET">
+                <div class="text-right">
+                    <input type="text" name="nameDist" id="nameDist">
+                    <button type="submit" class="">Search</button>
+                </div>
+            </form>
+        </div>
         <table class="table">
             <tr>
                 <th>Distributor Name </th>
@@ -20,7 +28,7 @@
                 
             @endforeach
         </table>
-
+        {{$distributors->links()}}
     </div>
     <div class="col-md-5">
             <h3 class="text-center mb-4"> New Distributor</h3>
