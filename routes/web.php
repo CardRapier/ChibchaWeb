@@ -41,9 +41,14 @@ Route::post('/domain/email', 'DomainController@sendEmail')->name('domain.sendEma
 Route::get('/user/domain', 'DomainUserController@index')->name('domain.index')->middleware('verified');
 Route::post('/user/domain', 'DomainUserController@addregistry')->name('domain.addregistry')->middleware('verified');
 
-Route::get('/user/distributor', 'DistributorController@index')->name('distributor.index')->middleware('verified');
-Route::post('/user/distributor', 'DistributorController@addDistributor')->name('distributor.addDistributor')->middleware('verified');
-
 Route::get('/user/userTicket', 'TicketController@index')->name('ticket.index')->middleware('verified');
 Route::post('/user/userTicket', 'TicketController@addTicket')->name('ticket.addTicket')->middleware('verified');
 Route::get('/user/userTicket/{id}', 'TicketController@showTicket')->name('ticket.showTicket')->middleware('verified');
+
+Route::get('/admin','AdminController@index')->name('admin.index')->middleware('admin');
+Route::get('/admin/users','AdminController@showUsers')->name('admin.showUsers')->middleware('admin');
+Route::get('/admin/distributor', 'DistributorController@index')->name('admin.distributor')->middleware('admin');
+Route::post('/admin/distributor', 'DistributorController@addDistributor')->name('admin.addDistributor')->middleware('admin');
+Route::get('/admin/tickets','AdminController@showTickets')->name('admin.showTickets')->middleware('admin');
+Route::get('/admin/editTicket/{ticketId}','AdminController@editTicket')->name('editTicket')->middleware('admin');
+Route::post('/admin/tickets','AdminController@updateTicket')->name('admin.updateTicket')->middleware('admin');

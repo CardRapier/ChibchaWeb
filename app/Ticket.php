@@ -16,4 +16,8 @@ class Ticket extends Model
         if($id)
             return $query->where('user_id', $id);
     }
+    public function scopeName($query , $name){
+        if($name)
+            return $query->where('name','LIKE', "%$name%");
+    }
 }

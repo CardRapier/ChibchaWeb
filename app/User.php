@@ -57,4 +57,8 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Collaborator::class);
     }
+    public function scopeName($query , $name){
+        if($name)
+            return $query->where('name','LIKE', "%$name%");
+    }
 }
