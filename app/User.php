@@ -61,4 +61,11 @@ class User extends Authenticatable implements MustVerifyEmail
         if($name)
             return $query->where('name','LIKE', "%$name%");
     }
+
+    public function is_admin(){
+        if($this->user_type_id == 1 ){
+            return true;
+        }
+        return false;
+    }
 }

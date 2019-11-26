@@ -15,6 +15,8 @@ Route::get('/', 'PackageController@show')->name('package.show');
 
 Auth::routes(['verify' => true]);
 
+Route::post('/login/custom','LoginController@login')->name('login.custom');
+
 Route::get('/hosting', 'HostingController@showAll')->name('hosting.showAll')->middleware('verified');
 Route::get('/hosting/create','HostingController@create')->name('hosting.create')->middleware('verified');
 Route::post('/hosting/create','HostingController@store')->name('hosting.store')->middleware('verified');
