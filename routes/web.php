@@ -41,7 +41,7 @@ Route::get('/contact','PackageController@contact')->name('contact.show');
 Route::post('/contact','PackageController@contactEmail')->name('contact.email');
 
 Route::get('/user/domain', 'DomainUserController@index')->name('domain.index')->middleware('verified');
-Route::post('/user/domain', 'DomainUserController@addregistry')->name('domain.addregistry')->middleware('verified');
+Route::post('/user/domain', 'DomainUserController@register')->name('domain.register')->middleware('verified');
 
 Route::get('/user/userTicket', 'TicketController@index')->name('ticket.index')->middleware('verified');
 Route::post('/user/userTicket', 'TicketController@addTicket')->name('ticket.addTicket')->middleware('verified');

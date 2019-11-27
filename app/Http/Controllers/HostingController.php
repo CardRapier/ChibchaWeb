@@ -94,13 +94,12 @@ class HostingController extends Controller
     {
         $data = request()->validate([
             'name' => ['required', Rule::unique('hostings')],
-            'domain' => ['required', 'string', new DomainAvailable()],
             'package' => ['required', 'not_in: -1'],
             'plan' => ['required', 'not_in: -1']
         ]);
 
         session(['hosting-data' => $data]);
-          
+        
         $intent = [
             'intent' => auth()->user()->createSetupIntent(),
         ];
@@ -116,17 +115,39 @@ class HostingController extends Controller
         $hostingData = session('hosting-data');
         $packageId = $hostingData['package'];
         $planId = $hostingData['plan'];
-
-        if($packageId == '1,5000') { 
+    
+        if($packageId == '1,15') { 
             $packageId = 'prod_GDo1zMap1HZid6';
             if($planId == '1') {
                 $planId = 'silver_monthly';
             } else if ($planId == '3') {
-                $planId = 'silver_quartely';
+                $planId = 'silver_quarterly';
             } else if ($planId == '6') {
                 $planId = 'silver_biannual';
             } else {
                 $planId = 'silver_annual';
+            }
+        } else if ($packageId == '2,30') {
+            $packageId = 'prod_GFnSHrey8s2XM6';
+            if($planId == '1') {
+                $planId = 'gold_monthly';
+            } else if ($planId == '3') {
+                $planId = 'gold_quarterly';
+            } else if ($planId == '6') {
+                $planId = 'gold_biannual';
+            } else {
+                $planId = 'gold_annual';
+            }
+        } else {
+            $packageId = 'prod_GFncalajIfd5m0';
+            if($planId == '1') {
+                $planId = 'platinum_monthly';
+            } else if ($planId == '3') {
+                $planId = 'platinum_quarterly';
+            } else if ($planId == '6') {
+                $planId = 'platinum_biannual';
+            } else {
+                $planId = 'platinum_annual';
             }
         }
 
