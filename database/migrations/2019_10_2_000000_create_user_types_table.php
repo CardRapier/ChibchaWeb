@@ -18,6 +18,16 @@ class CreateUserTypesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        DB::table('user_types')->insert(
+            array(
+                'name'=>'Admin'
+        ));
+        DB::table('user_types')->insert(
+            array(
+                'name'=>'User'
+        ));
+
     }
 
     /**
