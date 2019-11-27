@@ -2,12 +2,43 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\TodayLoginUsers;
+use App\User;
+use App\Ticket;
+use App\Distributor;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
     public function index() {
-        return view('users.admin.admin');
+
+        $today_users = User::whereDate('last_login', today())->count();
+        $yesterday_users = User::whereDate('last_login', today()->subDays(1))->count();
+        $users_2_days_ago = User::whereDate('last_login', today()->subDays(2))->count();
+        $loginUser = new TodayLoginUsers;
+        $loginUser->labels(['2 days ago', 'Yesterday', 'Today']);
+        $loginUser->dataset('Users', 'bar', [$users_2_days_ago, $yesterday_users, $today_users])->backgroundColor(["#".substr(md5(rand()), 0, 6),"#".substr(md5(rand()), 0, 6),"#".substr(md5(rand()), 0, 6)])->color(["#".substr(md5(rand()), 0, 6)]);
+
+        $tickets_openeds = Ticket::where('state','O')->count();
+        $tickets_close = Ticket::where('state','C')->count();
+        $ticketsChart  = new TodayLoginUsers;
+        $ticketsChart->labels(['Opened', 'Closed']);
+        $ticketsChart->dataset('Tickets','bar',[$tickets_openeds,$tickets_close])->backgroundColor(['#A8FFBD','#B32532'])->color(['#FF737F','#8FFFA9']);
+
+        $distributors = Distributor::all();
+        $distData = array();
+        $distLabels = array();
+        $distColors = array();
+        foreach($distributors as $distributor){
+            array_push($distLabels,$distributor->name);
+            array_push($distData,$distributor->domains_quantity);
+            array_push($distColors,"#".substr(md5(rand()), 0, 6));
+        }
+        $distributorsChart  = new TodayLoginUsers;
+        $distributorsChart->labels($distLabels);
+        $distributorsChart->dataset('Distributors','pie',$distData)->backgroundColor($distColors);
+        
+        return view('users.admin.admin')->with(['loginUsers'=>$loginUser,'ticketsChart'=>$ticketsChart,'distributorsChart'=>$distributorsChart]);
     }
 
     public function showUsers(Request $request){
