@@ -20,6 +20,14 @@ class CreateDistributorsTable extends Migration
             $table->string('description');
             $table->timestamps();
         });
+
+        Schema::connection('pgsql2')->create('distributors', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('name');
+            $table->integer('domains_quantity');
+            $table->string('description');
+            $table->timestamps();
+        });
     }
 
     /**
