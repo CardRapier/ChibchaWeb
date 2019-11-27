@@ -13,7 +13,7 @@
                 <div class="card-header">{{ __('Register Domain') }}</div>
 
                 <div class="card-body">
-                    <form action="" method="">
+                    <form action="POST" method="{{ route('domain.register') }}">
                         <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Email Owner</label>
                                 <div>

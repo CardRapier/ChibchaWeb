@@ -38,7 +38,7 @@ Route::get('/domain/email', 'DomainController@email')->name('domain.email');
 Route::post('/domain/email', 'DomainController@sendEmail')->name('domain.sendEmail');
 
 Route::get('/user/domain', 'DomainUserController@index')->name('domain.index')->middleware('verified');
-Route::post('/user/domain', 'DomainUserController@addregistry')->name('domain.addregistry')->middleware('verified');
+Route::post('/user/domain', 'DomainUserController@register')->name('domain.register')->middleware('verified');
 
 Route::get('/user/userTicket', 'TicketController@index')->name('ticket.index')->middleware('verified');
 Route::post('/user/userTicket', 'TicketController@addTicket')->name('ticket.addTicket')->middleware('verified');

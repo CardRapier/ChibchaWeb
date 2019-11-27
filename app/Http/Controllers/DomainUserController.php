@@ -13,14 +13,16 @@ class DomainUserController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->apiclient = new Client(['base_uri'=>'https://chibchawebapi.herokuapp.com/']);
+        $this->apiclient = new Client(['base_uri' => 'https://chibchawebapi.herokuapp.com/']);
     }
 
-    public function index() {
+    public function index()
+    {
         $distributors = Distributor::all();
-        return view('users.domain.domain')->with('distributors',$distributors);
+        return view('users.domain.domain')->with('distributors', $distributors);
     }
-    public function addregistry(Request $request){
-    //  $this->apiclient->post('/save',);
+    public function register(Request $request)
+    {
+        
     }
 }

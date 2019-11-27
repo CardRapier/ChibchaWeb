@@ -37,20 +37,6 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="domain" class="col-md-4 col-form-label text-md-right">Name of the domain</label>
-
-                            <div class="col-md-6">
-                                <input id="domain" type="text"
-                                    class="form-control @error('domain') is-invalid @enderror" name="domain"
-                                    value="{{ old('domain') }}" required autocomplete="domain" autofocus>
-                                @error('domain')
-                                <span class="invalid-feedback" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
                             <label for="package" class="col-md-4 col-form-label text-md-right">Select a package</label>
 
                             <div class="col-md-6">
