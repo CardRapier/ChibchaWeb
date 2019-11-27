@@ -15,7 +15,7 @@ class DistributorController extends Controller
     }
     public function index(Request $request){
         $nameRequest=$request->get('nameDist');
-        $distributors = Distributor::orderBy('name', 'DESC')
+        $distributors = Distributor::orderBy('name', 'ASC')
         ->name($nameRequest)
         ->paginate(5);
         return view('users.distributor.distributor', compact('distributors'));
@@ -28,8 +28,6 @@ class DistributorController extends Controller
         $newDistributor->description=$request->descriptionDistributor;
         $newDistributor->save();
         return back()->with('users.distributor.distributor', 'New distributor added');
-
-
     }
 
 
