@@ -19,7 +19,7 @@ class Admin
             return redirect('/'); 
         }
         $u_id = auth()->user()->user_type_id;
-        if($u_id == 2){
+        if($u_id == 2 or $u_id==null){
             return redirect('/');
         }
         return $next($request);

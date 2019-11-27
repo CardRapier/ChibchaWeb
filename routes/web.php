@@ -37,6 +37,9 @@ Route::post('/domain', 'DomainController@available')->name('domain.available');
 Route::get('/domain/email', 'DomainController@email')->name('domain.email');
 Route::post('/domain/email', 'DomainController@sendEmail')->name('domain.sendEmail');
 
+Route::get('/contact','PackageController@contact')->name('contact.show');
+Route::post('/contact','PackageController@contactEmail')->name('contact.email');
+
 Route::get('/user/domain', 'DomainUserController@index')->name('domain.index')->middleware('verified');
 Route::post('/user/domain', 'DomainUserController@addregistry')->name('domain.addregistry')->middleware('verified');
 

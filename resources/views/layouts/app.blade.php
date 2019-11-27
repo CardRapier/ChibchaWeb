@@ -44,13 +44,10 @@
                             <a class="nav-link" href="{{ url('/') }}">Products</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Distributors</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="{{ url('domain') }}">Domains</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Contact Us</a>
+                            <a class="nav-link" href="{{ route('contact.show') }}">Contact Us</a>
                         </li>
                     @guest
                     @else

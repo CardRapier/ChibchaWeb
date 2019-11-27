@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container">
-    <div class="row mb-5">
+    <div class="row mb-2">
     <div class="mx-auto" style="width: 170px;">
         <h1>Products</h1>
     </div>
@@ -17,24 +17,24 @@
             </ol>
             <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(31).jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5>First slide label</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                <img src="/img/godaddy.jpg" class="d-block w-100 h-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark font-weight-bold">
+                <h5>Visit our distributors</h5>
+                <p>GoDaddy: <a href="https://co.godaddy.com/">godaddy.com</a></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://mdbootstrap.com/img/Photos/Slides/img%20(25).jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5>Second slide label</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <img src="/img/hostinger.jpg" class="d-block w-100 h-85" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark font-weight-bold">
+                <h5>Visit our distributors</h5>
+                <p>Hostinger: <a href="https://www.hostinger.com/">hostinger.com</a></p>
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="http://megabrainsinfotech.com/img/carousel/slide2.jpg" class="d-block w-100" alt="...">
-                <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                <img src="/img/hostgator.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block text-dark font-weight-bold">
+                <h5>Visit our distributors</h5>
+                <p>Hostgator: <a href="https://www.hostgator.com/">hostgator.com</a></p>
                 </div>
             </div>
             </div>
