@@ -38,7 +38,12 @@ class AdminController extends Controller
         $distributorsChart->labels($distLabels);
         $distributorsChart->dataset('Distributors','pie',$distData)->backgroundColor($distColors);
         
-        return view('users.admin.admin')->with(['loginUsers'=>$loginUser,'ticketsChart'=>$ticketsChart,'distributorsChart'=>$distributorsChart]);
+        \Stripe\Stripe::setApiKey("sk_test_G2zdehH3j0HrGmz96joh0wUB00uqHYIXGc");
+        $balance = \Stripe\Balance::retrieve();
+        $available =  "Available $".reset($balance->available)->amount/100;
+        $pending =  "Pending $".reset($balance->pending)->amount/100;
+
+        return view('users.admin.admin')->with(['loginUsers'=>$loginUser,'ticketsChart'=>$ticketsChart,'distributorsChart'=>$distributorsChart,'pending'=>$pending,'available'=>$available]);
     }
 
     public function showUsers(Request $request){
