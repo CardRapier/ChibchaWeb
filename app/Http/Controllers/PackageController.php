@@ -8,7 +8,7 @@ class PackageController extends Controller
 {
     public function show(){
         $packages = Package::all();
-        //dd($packages);
+        
         return view('products')->with('packages', $packages);
     }
 }

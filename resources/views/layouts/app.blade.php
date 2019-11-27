@@ -20,6 +20,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @yield('head')
 </head>
 
 <body>
@@ -128,6 +130,9 @@
         $('[data-toggle="tooltip"]').tooltip()
     })
     </script>
+
+    @yield('js')
+
 </body>
 
 </html>

@@ -57,13 +57,13 @@
     @foreach ($packages as $package)
     <div class="col-md ml-5">
             <div class="card " style="width: 18rem;">
-            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d6df2d66-13da-4ce4-ae85-8009742c5c94/d6u3akw-083e0053-76fa-4563-baea-c3a61566c907.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q2ZGYyZDY2LTEzZGEtNGNlNC1hZTg1LTgwMDk3NDJjNWM5NFwvZDZ1M2Frdy0wODNlMDA1My03NmZhLTQ1NjMtYmFlYS1jM2E2MTU2NmM5MDcucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.41OOwD6GrJoP0ahm5-Gmu5tzQyZ410FWY1wqT8lEovU" class="card-img-top" alt="...">
+            <img src="{{$package['image']}}" class="card-img-top" alt="...">
             <div class="card-body">
                 <h5 class="card-title">{{$package['name']}}</h5>
                 <p class="card-text">{{$package['description']}}</p>
                 <div class="d-flex">
                     <span class="mr-5 align-bottom">{{$package['price']}}$</span>
-                    <a href="#" class="ml-5 btn btn-primary">Buy now!</a>
+                    <a href="/hosting/create" class="ml-5 btn btn-primary">Buy now!</a>
                 </div>
             </div>
             </div>
