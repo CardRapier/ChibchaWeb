@@ -24,6 +24,7 @@ class Admin
         }else if($u_id == 3){
             return redirect('/admin/support/tickets');
         }
+        dd($u_id);
         return $next($request);
     }
 }

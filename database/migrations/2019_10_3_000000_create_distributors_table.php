@@ -38,6 +38,5 @@ class CreateDistributorsTable extends Migration
     public function down()
     {
         Schema::dropIfExists('distributors');
-        Schema::connection('pgsql2')->dropIfExists('distributors');
     }
 }
