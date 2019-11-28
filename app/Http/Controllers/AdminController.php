@@ -54,7 +54,7 @@ class AdminController extends Controller
 
     public function showTickets(Request $request){
         $ticketName = $request->get("nameTicket");
-        $type_id = auth()->user()->user_type_id();
+        $type_id = auth()->user()->user_type_id;
         $tickets = \App\Ticket::orderBy('id', 'ASC')->name($ticketName)->paginate(20);
         
         return view('users.admin.tickets')->with(['tickets'=>$tickets,'type_id'=>$type_id]);
@@ -62,7 +62,7 @@ class AdminController extends Controller
 
     public function showTicketsSupport(Request $request){
         $ticketName = $request->get("nameTicket");
-        $type_id = auth()->user()->user_type_id();
+        $type_id = auth()->user()->user_type_id;
         $tickets = \App\Ticket::orderBy('id', 'ASC')->name($ticketName)->paginate(20);
         
         return view('users.admin.tickets')->with(['tickets'=>$tickets,'type_id'=>$type_id]);
