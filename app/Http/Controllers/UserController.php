@@ -52,11 +52,41 @@ class UserController extends Controller
         $password = auth()->user()->password;
 
         if (Hash::check($oldpassword, $password)) {
-            $user->password = $data['password'];
+            $user->password = Hash::make($data['password']);
             $user->save();
             return redirect('/profile')->with('message', 'Password has been updated successfully');
         } else {
             return redirect('/profile');
         }
+    }
+    public function userEdit($id){
+        $userForEdit = User::FindOrFail($id);
+        return view('users.admin.userEdit', compact('userForEdit'));
+    }
+    public function editUserAdmin(Request $request,$id){
+        $data = request()->validate([
+            'name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/'],
+            'last_name' => ['required', 'string', 'max:255', 'regex:/^[a-zA-ZñÑáéíóúÁÉÍÓÚ ]+$/'],
+            'cellphone_number' => ['string', 'nullable'],
+        ]);
+        $userNewInfo= User::FindOrFail($id);
+        $userNewInfo->name=$request->name;
+        $userNewInfo->last_name=$request->last_name;
+        $userNewInfo->cellphone_number=$request->cellphone_number;
+        $userNewInfo->save();
+        return redirect('/admin/users')->with('editUserAdmin');
+
+    }
+    public function userEditPassword(Request $request , $id){
+        $userNewPassword= User::FindOrFail($id);
+        $data = request()->validate([
+            'password' => ['required', 'string', 'min:8', 'regex:/[a-z]/', 'regex:/[A-Z]/', 'regex:/[0-9]/', 'regex:/[@$!%*#?&_-]/', 'confirmed'],
+        ]);
+        
+            $userNewPassword->password = Hash::make($data['password']);
+            $userNewPassword->save();
+            return redirect('/admin/users')->with('userEditPassword', 'Password has been updated successfully');
+
+        
     }
 }

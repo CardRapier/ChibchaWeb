@@ -38,9 +38,10 @@
       <td>{{ $user->name }}</td>
       <td>{{ $user->last_name }}</td>
       <td>{{ $user->email}}</td>
-      <td>{{ $user->cellphone ?? 'None'}}</td>
+      <td>{{ $user->cellphone_number ?? 'None'}}</td>
       <td>{{ $user->last_login}}</td>
       <td>{{ $user->created_at}}</td>
+    <td><a href="{{route('admin.userEdit',$user->id )}}" class="btn btn-warning">EDIT</a></td>
     </tr>
     @endforeach
     {{$users->links()}}

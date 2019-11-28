@@ -51,6 +51,9 @@
                         </li>
                         <li class="nav-item">
                                 <a class="nav-link" href="{{ route('admin.showTickets') }}">Tickets</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/admin">Admin</a>
+                            </li>
                         </li>
                     @endguest
                     </ul>
