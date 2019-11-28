@@ -65,7 +65,7 @@ class AdminController extends Controller
         $type_id = auth()->user()->user_type_id;
         $tickets = \App\Ticket::orderBy('id', 'ASC')->name($ticketName)->paginate(20);
         
-        return view('users.admin.tickets')->with(['tickets'=>$tickets,'type_id'=>$type_id]);
+        return view('users.admin.support')->with(['tickets'=>$tickets,'type_id'=>$type_id]);
     }
 
     public function editTicket($ticketId){
