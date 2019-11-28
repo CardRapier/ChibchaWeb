@@ -20,16 +20,20 @@
                 <th>Description</th>
             </tr>
             @foreach ($distributors as $item)
-            @csrf
                 <tr>
                 <td>{{$item->name}}</td>
                 <td>{{$item->domains_quantity}}</td>
                 <td>{{$item->description}}</td>
                 </tr>
-                
+            @endforeach
+            @foreach ($dist as $item)
+                <tr>
+                <td>{{$item->name}}</td>
+                <td>{{$item->domains_quantity}}</td>
+                <td>{{$item->description}}</td>
+                </tr>
             @endforeach
         </table>
-        {{$distributors->links()}}
         </div>
     </div>
     <div class="col-md-5">
