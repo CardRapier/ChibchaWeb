@@ -20,11 +20,12 @@ class Admin
         }
         $u_id = auth()->user()->user_type_id;
         if($u_id == 2 or $u_id==null){
+            dd($u_id);
             return redirect('/');
         }else if($u_id == 3){
             return redirect('/admin/support/tickets');
         }
-        dd($u_id);
+        
         return $next($request);
     }
 }
