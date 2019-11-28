@@ -27,6 +27,10 @@ class CreateUserTypesTable extends Migration
             array(
                 'name'=>'User'
         ));
+        DB::table('user_types')->insert(
+            array(
+                'name'=>'Support'
+        ));
 
     }
 
