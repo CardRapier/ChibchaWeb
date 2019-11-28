@@ -55,6 +55,7 @@ Route::get('/admin/users','AdminController@showUsers')->name('admin.showUsers')-
 Route::get('/admin/distributor', 'DistributorController@index')->name('admin.distributor')->middleware('admin');
 Route::post('/admin/distributor', 'DistributorController@addDistributor')->name('admin.addDistributor')->middleware('admin');
 Route::get('/admin/tickets','AdminController@showTickets')->name('admin.showTickets')->middleware('admin');
+Route::get('/admin/support/tickets','AdminController@showTicketsSupport')->name('admin.showTicketsSupport')->middleware('admin');
 Route::get('/admin/editTicket/{ticketId}','AdminController@editTicket')->name('editTicket')->middleware('admin');
 Route::post('/admin/tickets','AdminController@updateTicket')->name('admin.updateTicket')->middleware('admin');
 Route::get('/admin/users/userEdit/{id}','UserController@userEdit')->name('admin.userEdit')->middleware('admin');
