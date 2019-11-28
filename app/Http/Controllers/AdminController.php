@@ -72,6 +72,10 @@ class AdminController extends Controller
         $ticket = \App\Ticket::find($ticketId);
         return view('users.admin.editTicket')->with('ticket',$ticket);
     }
+    public function editTicketSupport($ticketId){
+        $ticket = \App\Ticket::find($ticketId);
+        return view('users.admin.editTicketSupport')->with('ticket',$ticket);
+    }
 
     public function updateTicket(){
         $data = request()->validate([
@@ -84,6 +88,19 @@ class AdminController extends Controller
         $ticket->state = 'C';
         $ticket->save();
         return redirect("/admin/tickets");
+    }
+
+    public function updateTicketSupport(){
+        $data = request()->validate([
+            'ticket_id'=>'required',
+            'answer'=>'required'
+        ]);
+
+        $ticket = \App\Ticket::find($data['ticket_id']);
+        $ticket->answer_description = $data['answer'];
+        $ticket->state = 'C';
+        $ticket->save();
+        return redirect("/admin/support/tickets");
     }
 
 }

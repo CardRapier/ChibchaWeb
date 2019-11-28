@@ -41,7 +41,7 @@
                     @guest
                     @else
                         <li class="nav-item">
-                                <a class="nav-link" href="{{ route('admin.showTickets') }}">Tickets</a>
+                                <a class="nav-link" href="{{ route('admin.showTicketsSupport') }}">Tickets</a>
                         </li>
                     @endguest
                     </ul>

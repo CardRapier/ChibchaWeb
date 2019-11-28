@@ -23,7 +23,7 @@
             <th>Open</th>
             <th>{{$item->user_id}}</th>
             <th>
-                <a href="{{url('/admin/editTicket/'.$item->id)}}" class="btn btn-danger">
+                <a href="{{url('/support/editTicket/'.$item->id)}}" class="btn btn-danger">
                     Edit
                 </a>
             </th>
@@ -31,7 +31,7 @@
             <th>Closed</th>
             <th>{{$item->user_id}}</th>
             <th>
-            <a href="{{url('/admin/editTicket/'.$item->id)}}" class="btn btn-success">
+            <a href="{{url('/support/editTicket/'.$item->id)}}" class="btn btn-success">
                     Edit
             </a>
             </th>

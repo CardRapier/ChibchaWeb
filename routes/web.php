@@ -58,6 +58,8 @@ Route::get('/admin/tickets','AdminController@showTickets')->name('admin.showTick
 Route::get('/admin/support/tickets','AdminController@showTicketsSupport')->name('admin.showTicketsSupport')->middleware('admin');
 Route::get('/admin/editTicket/{ticketId}','AdminController@editTicket')->name('editTicket')->middleware('admin');
 Route::post('/admin/tickets','AdminController@updateTicket')->name('admin.updateTicket')->middleware('admin');
+Route::get('/support/editTicket/{ticketId}','AdminController@editTicketSupport')->name('editTicketSupport')->middleware('admin');
+Route::post('/support/tickets','AdminController@updateTicketSupport')->name('admin.updateTicketSupport')->middleware('admin');
 Route::get('/admin/users/userEdit/{id}','UserController@userEdit')->name('admin.userEdit')->middleware('admin');
 Route::put('/admin/users/editUserAdmin/{id}','UserController@editUserAdmin')->name('admin.editUserAdmin')->middleware('admin');
 Route::put('/admin/users/userEditPassword/{id}','UserController@userEditPassword')->name('admin.userEditPassword')->middleware('admin');
