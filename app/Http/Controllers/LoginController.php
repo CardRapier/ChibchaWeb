@@ -14,6 +14,8 @@ class LoginController extends Controller
             $user = User::where('email',$request->email)->first();
             if($user->is_admin()){
                 return redirect()->route('admin.index');
+            }else if($user->is_support()){
+                return redirect()->route('admin.showTicketsSupport');
             }else{
                 return redirect()->route('package.show');
             }

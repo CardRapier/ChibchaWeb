@@ -69,4 +69,10 @@ class User extends Authenticatable implements MustVerifyEmail
         }
         return false;
     }
+    public function is_support(){
+        if($this->user_type_id == 3 ){
+            return true;
+        }
+        return false;
+    }
 }
