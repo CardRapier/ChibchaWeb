@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Collaborator extends Model
 {
-    protected $primaryKey = ['user_id', 'hosting_id'];
     public $incrementing = false;
+    protected $fillable = [
+        'user_id', 'hosting_id', 'collaboration_level'
+    ];
 
     public function user()
     {

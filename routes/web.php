@@ -23,6 +23,8 @@ Route::get('/hosting/create','HostingController@create')->name('hosting.create')
 Route::post('/hosting/create','HostingController@store')->name('hosting.store')->middleware('verified');
 Route::post('/hosting/process','HostingController@process')->name('hosting.process')->middleware('verified');
 Route::get('/hosting/done','HostingController@done')->name('hosting.done')->middleware('verified');
+Route::get('/hosting/share/{hosting_id}','HostingController@share')->name('hosting.share')->middleware('verified');
+Route::post('/hosting/share','HostingController@sharing')->name('hosting.sharing')->middleware('verified');
 
 Route::get('/hosting/show/{user_id}/{hosting_id}','HostingController@show')->name('hosting.show')->middleware('verified');
 Route::post('/hosting/upload','HostingController@upload')->name('hosting.upload')->middleware('verified');

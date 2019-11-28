@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Distributor;
+use App\Rules\DomainAvailable;
 use GuzzleHttp\Client;
 
 class DomainUserController extends Controller
@@ -26,8 +27,10 @@ class DomainUserController extends Controller
             'id'=>'',
             'email' => ['required', 'string','email'],
             'distributor'=>['required','string'],
-            'domain'=>['required','string']
+            'domain'=>['required','string', new DomainAvailable()]
         ]);
+
+        
         $client = new Client(['base_uri' => 'http://chibchaweblfs.centralus.cloudapp.azure.com:3000/']);
         /* Ejemplo de get con GUZZLE
         $r = $client->request('GET', '',[]);

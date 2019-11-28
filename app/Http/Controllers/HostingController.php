@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Collaborator;
 use App\Hosting;
 use App\Package;
 use App\User;
 use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use Illuminate\Validation\Rule;
-use App\Rules\DomainAvailable;
+use App\Rules\EmailExist;
 
 class HostingController extends Controller
 {
@@ -21,6 +22,14 @@ class HostingController extends Controller
     {
         $id = auth()->user()->id;
         $hostings = Hosting::all()->where('user_id', $id);
+        $collaborations = Collaborator::all()->where('user_id', $id);
+        $hostingCollaboration = [];
+        
+        foreach ($collaborations as $collaboration) {
+            $hostingAux = Hosting::find($collaboration->hosting_id);
+            $hostings[] = $hostingAux;
+        }
+        
         return view('users.hosting.hosting')->with('hostings', $hostings);
     }
 
@@ -204,5 +213,26 @@ class HostingController extends Controller
             ]
         ]);
         return redirect('/hosting/show/' . $data['name'] . "/" . $data['domain']);
+    }
+
+    public function share ($hosting_id) {
+        session(['hosting_id' => $hosting_id]);
+        return view('users.hosting.share');
+    }
+
+    public function sharing () { 
+        $data = request()->validate([
+            'email' => ['required', 'email', new EmailExist()],
+        ]);
+        $user = User::where('email', $data['email'])->first();
+        $hosting_id = (int)session('hosting_id');
+        
+        Collaborator::create([
+            'user_id' => $user->id,
+            'hosting_id' => $hosting_id,
+            'collaboration_level' => '1',
+        ]);
+        
+        return redirect('/hosting');
     }
 }
